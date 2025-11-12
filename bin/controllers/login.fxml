@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<VBox xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.LoginController" spacing="10" alignment="CENTER">
+  <padding>
+    <Insets top="20" right="20" bottom="20" left="20" />
+  </padding>
+  <Label text="Photos - Login" />
+  <GridPane hgap="8" vgap="8">
+    <Label text="Username:" GridPane.rowIndex="0" GridPane.columnIndex="0" />
+    <TextField fx:id="usernameField" GridPane.rowIndex="0" GridPane.columnIndex="1" />
+    <Label text="Password (optional for non-admin):" GridPane.rowIndex="1" GridPane.columnIndex="0" />
+    <PasswordField fx:id="passwordField" GridPane.rowIndex="1" GridPane.columnIndex="1" />
+  </GridPane>
+  <HBox spacing="10">
+    <Button fx:id="loginButton" text="Login" onAction="#handleLogin" />
+    <Button text="Quit" onAction="#handleQuit" />
+  </HBox>
+</VBox>

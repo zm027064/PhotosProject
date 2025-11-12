@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<VBox xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MainController" spacing="8">
+  <padding>
+    <Insets top="10" right="10" bottom="10" left="10" />
+  </padding>
+  <Label text="Albums" />
+  <ListView fx:id="albumListView" prefHeight="400" />
+  <HBox spacing="8">
+    <Button fx:id="createButton" text="Create Album" onAction="#handleCreate" />
+    <Button fx:id="deleteButton" text="Delete Album" onAction="#handleDelete" />
+    <Button fx:id="renameButton" text="Rename Album" onAction="#handleRename" />
+    <Button fx:id="openButton" text="Open Album" onAction="#handleOpen" />
+  <Button fx:id="searchButton" text="Search Photos" onAction="#handleSearch" />
+  <Button fx:id="logoutButton" text="Logout" onAction="#handleLogout" />
+  </HBox>
+</VBox>

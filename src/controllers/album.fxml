@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AlbumController">
+  <top>
+    <HBox spacing="10" alignment="CENTER_LEFT">
+      <padding>
+        <Insets top="10" right="10" bottom="10" left="10" />
+      </padding>
+      <Button fx:id="backButton" text="Back" onAction="#handleBack" />
+      <Label fx:id="albumNameLabel" text="Album" />
+    </HBox>
+  </top>
+  <center>
+    <SplitPane>
+      <AnchorPane prefWidth="300">
+        <ListView fx:id="photoListView" AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" />
+      </AnchorPane>
+      <VBox spacing="8">
+        <padding>
+          <Insets top="10" right="10" bottom="10" left="10" />
+        </padding>
+        <ImageView fx:id="photoView" fitWidth="500" fitHeight="400" preserveRatio="true" />
+        <Label fx:id="captionLabel" text="Caption" />
+        <Label fx:id="dateLabel" text="Date" />
+        <ListView fx:id="tagsListView" prefHeight="100" />
+        <HBox spacing="8">
+          <Button fx:id="prevButton" text="Prev" onAction="#handlePrev" />
+          <Button fx:id="nextButton" text="Next" onAction="#handleNext" />
+        </HBox>
+      </VBox>
+    </SplitPane>
+  </center>
+  <bottom>
+    <HBox spacing="8">
+      <padding>
+        <Insets top="10" right="10" bottom="10" left="10" />
+      </padding>
+      <Button fx:id="addButton" text="Add Photo" onAction="#handleAdd" />
+      <Button fx:id="removeButton" text="Remove Photo" onAction="#handleRemove" />
+      <Button fx:id="copyButton" text="Copy" onAction="#handleCopy" />
+      <Button fx:id="moveButton" text="Move" onAction="#handleMove" />
+      <Button fx:id="recapButton" text="Recaption" onAction="#handleRecaption" />
+      <Button fx:id="addTagButton" text="Add Tag" onAction="#handleAddTag" />
+      <Button fx:id="removeTagButton" text="Remove Tag" onAction="#handleRemoveTag" />
+    </HBox>
+  </bottom>
+</BorderPane>

@@ -1,0 +1,22 @@
+{
+    "java.project.sourcePaths": ["src"],
+    "java.project.outputPath": "bin",
+    "java.project.referencedLibraries": {
+        "include": [
+            "lib/**/*.jar",
+            "openjfx-21.0.9_windows-x64_bin-sdk/javafx-sdk-21.0.9/lib/javafx.base.jar",
+            "openjfx-21.0.9_windows-x64_bin-sdk/javafx-sdk-21.0.9/lib/javafx.controls.jar",
+            "openjfx-21.0.9_windows-x64_bin-sdk/javafx-sdk-21.0.9/lib/javafx.fxml.jar",
+            "openjfx-21.0.9_windows-x64_bin-sdk/javafx-sdk-21.0.9/lib/javafx.graphics.jar",
+            "openjfx-21.0.9_windows-x64_bin-sdk/javafx-sdk-21.0.9/lib/javafx.media.jar",
+            "openjfx-21.0.9_windows-x64_bin-sdk/javafx-sdk-21.0.9/lib/javafx.swing.jar",
+            "openjfx-21.0.9_windows-x64_bin-sdk/javafx-sdk-21.0.9/lib/javafx.web.jar",
+            "openjfx-21.0.9_windows-x64_bin-sdk/javafx-sdk-21.0.9/lib/javafx-swt.jar"
+        ],
+        "exclude": [
+            "c:\\Users\\prayr\\Downloads\\openjfx-21.0.9_windows-x64_bin-sdk\\javafx-sdk-21.0.9\\lib\\javafx.base.jar",
+            "c:\\Users\\prayr\\Downloads\\openjfx-21.0.9_windows-x64_bin-sdk\\javafx-sdk-21.0.9\\lib\\javafx.controls.jar",
+            "c:\\Users\\prayr\\Downloads\\openjfx-21.0.9_windows-x64_bin-sdk\\javafx-sdk-21.0.9\\lib\\javafx.swing.jar"
+        ]
+    }
+}

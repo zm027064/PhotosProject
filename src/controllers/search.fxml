@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.SearchController" spacing="10">
+  <padding>
+    <Insets top="10" right="10" bottom="10" left="10" />
+  </padding>
+  
+  <Label text="Search Photos" style="-fx-font-size: 16; -fx-font-weight: bold;" />
+  
+  <TitledPane text="Search by Date Range">
+    <VBox spacing="8">
+      <HBox spacing="8">
+        <Label text="Start Date:" />
+        <DatePicker fx:id="startDatePicker" />
+        <Label text="End Date:" />
+        <DatePicker fx:id="endDatePicker" />
+      </HBox>
+      <Button fx:id="searchDateButton" text="Search by Date" onAction="#handleSearchByDate" />
+    </VBox>
+  </TitledPane>
+  
+  <TitledPane text="Search by Tags">
+    <VBox spacing="8">
+      <HBox spacing="8">
+        <VBox spacing="4">
+          <Label text="Tag 1" />
+          <TextField fx:id="tag1NameField" promptText="Name (e.g. person)" />
+          <TextField fx:id="tag1ValueField" promptText="Value (e.g. Alice)" />
+        </VBox>
+        <VBox spacing="4">
+          <Label text="Tag 2 (optional)" />
+          <TextField fx:id="tag2NameField" promptText="Name (e.g. location)" />
+          <TextField fx:id="tag2ValueField" promptText="Value (e.g. New York)" />
+        </VBox>
+      </HBox>
+      
+      <HBox spacing="8">
+        <Label text="Combine with:" />
+        <RadioButton fx:id="andRadio" text="AND" selected="true" />
+        <RadioButton fx:id="orRadio" text="OR" />
+      </HBox>
+      
+      <Button fx:id="searchTagButton" text="Search by Tags" onAction="#handleSearchByTag" />
+    </VBox>
+  </TitledPane>
+  
+  <Label text="Search Results:" />
+  <ListView fx:id="resultsListView" prefHeight="200" />
+  
+  <HBox spacing="8">
+    <Button fx:id="createAlbumButton" text="Create Album from Results" onAction="#handleCreateAlbum" />
+    <Button fx:id="backButton" text="Back" onAction="#handleBack" />
+  </HBox>
+</VBox>
