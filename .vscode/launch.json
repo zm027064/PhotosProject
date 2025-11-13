@@ -8,7 +8,15 @@
             "type": "java",
             "name": "Photos",
             "request": "launch",
-            "vmArgs": "--module-path \"../openjfx-21.0.9_windows-x64_bin-sdk/javafx-sdk-21.0.9/lib\" --add-modules javafx.controls,javafx.fxml",
+            "vmArgs": "--module-path \"${workspaceFolder}/openjfx-21.0.9_windows-x64_bin-sdk/javafx-sdk-21.0.9/lib\" --add-modules javafx.controls,javafx.fxml",
+            "mainClass": "Photos",
+            "projectName": "Photos31-main_4096bc85"
+        },
+        {
+            "type": "java",
+            "name": "Photos",
+            "request": "launch",
+            "vmArgs": "--module-path \"${workspaceFolder}/openjfx-21.0.9_windows-x64_bin-sdk/javafx-sdk-21.0.9/lib\" --add-modules javafx.controls,javafx.fxml",
 
             "mainClass": "Photos",
             "projectName": "Photos_9c9de0dc"
@@ -17,7 +25,7 @@
             "type": "java",
             "name": "App",
             "request": "launch",
-            "vmArgs": "--module-path \"../openjfx-21.0.9_windows-x64_bin-sdk/javafx-sdk-21.0.9/lib\" --add-modules javafx.controls,javafx.fxml",
+            "vmArgs": "--module-path \"${workspaceFolder}/openjfx-21.0.9_windows-x64_bin-sdk/javafx-sdk-21.0.9/lib\" --add-modules javafx.controls,javafx.fxml",
 
             "mainClass": "App",
             "projectName": "Photos_9c9de0dc"
@@ -26,7 +34,7 @@
             "type": "java",
             "name": "Current File",
             "request": "launch",
-            "vmArgs": "--module-path \"../openjfx-21.0.9_windows-x64_bin-sdk/javafx-sdk-21.0.9/lib\" --add-modules javafx.controls,javafx.fxml",
+            "vmArgs": "--module-path \"${workspaceFolder}/openjfx-21.0.9_windows-x64_bin-sdk/javafx-sdk-21.0.9/lib\" --add-modules javafx.controls,javafx.fxml",
 
             "mainClass": "${file}"
         }
