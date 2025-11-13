@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Admin_Portal_Controller">
+   <children>
+      <SplitPane dividerPositions="0.19454545454545452" orientation="VERTICAL" prefHeight="368.0" prefWidth="600.0" AnchorPane.bottomAnchor="32.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="53.0" prefWidth="597.0">
+               <children>
+                  <ImageView fitHeight="83.0" fitWidth="600.0" layoutX="-4.0" layoutY="-7.0" pickOnBounds="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <image>
+                        <Image url="@../../data/GIF/beach.gif" />
+                     </image>
+                  </ImageView>
+                  <Text layoutX="21.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Admin Portal" textAlignment="CENTER" wrappingWidth="250.80337524414062" AnchorPane.bottomAnchor="5.578125" AnchorPane.leftAnchor="20.666666666666714" AnchorPane.rightAnchor="325.52995808919275" AnchorPane.topAnchor="6.12109375">
+                     <font>
+                        <Font name="Brush Script MT Italic" size="46.0" />
+                     </font>
+                  </Text>
+               </children>
+               <effect>
+                  <Glow />
+               </effect>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="312.0" prefWidth="597.0">
+               <children>
+                  <ListView fx:id="userListView" layoutX="7.0" layoutY="8.0" onMouseClicked="#select_user" prefHeight="316.6666666666667" prefWidth="597.3333333333334" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+      <HBox layoutY="368.0" prefHeight="31.0" prefWidth="600.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0">
+         <children>
+            <Button fx:id="Add_User_Button" mnemonicParsing="false" onAction="#Add_User_Admin" prefHeight="25.0" prefWidth="190.0" text="Add User" HBox.hgrow="ALWAYS">
+               <HBox.margin>
+                  <Insets left="4.0" top="2.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="Delete_User_Button" mnemonicParsing="false" onAction="#Delete_User_Action" prefHeight="25.0" prefWidth="190.0" text="Delete User">
+               <HBox.margin>
+                  <Insets top="2.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="logout_admin_button" mnemonicParsing="false" onAction="#logout_Admin" prefHeight="25.0" prefWidth="190.0" text="Logout">
+               <HBox.margin>
+                  <Insets bottom="2.0" right="2.0" top="2.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

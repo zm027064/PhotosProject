@@ -20,22 +20,47 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+/**
+ * Controller for searching photos by date range or tags. Produces a result
+ * album from search results and allows navigation back to the main view.
+ *
+ * <p>Search results may be persisted into a new album for the active
+ * user. Supports AND/OR semantics for tag searches.</p>
+ *
+ * @author Zach
+ */
 public class SearchController {
+    /** FX-injected start date picker. */
     @FXML public DatePicker startDatePicker;
+    /** FX-injected end date picker. */
     @FXML public DatePicker endDatePicker;
+    /** FX-injected fields for primary tag name/value. */
     @FXML public TextField tag1NameField, tag1ValueField;
+    /** FX-injected fields for secondary tag name/value. */
     @FXML public TextField tag2NameField, tag2ValueField;
+    /** FX-injected radio buttons for AND/OR search semantics. */
     @FXML public RadioButton andRadio, orRadio;
+    /** FX-injected list view of search results. */
     @FXML public ListView<Photo> resultsListView;
+    /** FX-injected action buttons for searching and creating albums from results. */
     @FXML public Button searchDateButton, searchTagButton, createAlbumButton, backButton;
 
     private User user;
     private List<Photo> searchResults = new ArrayList<>();
 
+    /**
+     * Set the active user for search operations.
+     *
+     * @param u active user
+     */
     public void setUser(User u) {
         this.user = u;
     }
 
+    /**
+     * Perform a date-range search across the user's albums and populate
+     * the results list view.
+     */
     @FXML
     public void handleSearchByDate() {
         LocalDate start = startDatePicker.getValue();
@@ -62,6 +87,10 @@ public class SearchController {
         updateResultsList();
     }
 
+    /**
+     * Search for photos by one or two tags (AND/OR semantics)
+     * and populate the results list view.
+     */
     @FXML
     public void handleSearchByTag() {
         String name1 = tag1NameField.getText().trim();
@@ -106,6 +135,10 @@ public class SearchController {
         updateResultsList();
     }
 
+
+    /**
+     * Create a new album from the current search results.
+     */
     @FXML
     public void handleCreateAlbum() {
         if (searchResults.isEmpty()) {
@@ -147,15 +180,18 @@ public class SearchController {
         });
     }
 
+    /**
+     * Navigate back to the main album view for the active user.
+     */
     @FXML
     public void handleBack() {
         try {
             Stage stage = (Stage) backButton.getScene().getWindow();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/controllers/main.fxml"));
-            Parent root = loader.load();
-            MainController controller = loader.getController();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/controllers/NonAdminController.fxml"));
+            Parent p = loader.load();
+            NonAdmin_Controller controller = loader.getController();
             controller.setUser(user);
-            stage.setScene(new Scene(root));
+            stage.setScene(new Scene(p));
             stage.setTitle("Photos - " + user.getUsername());
         } catch (Exception ex) {
             ex.printStackTrace();

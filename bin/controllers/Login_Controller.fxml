@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Login_Controller">
+   <children>
+      <ImageView fitHeight="405.0" fitWidth="603.0" pickOnBounds="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <image>
+            <Image url="@../../data/stock/blue.jpg" />
+         </image>
+         <viewport>
+            <Rectangle2D />
+         </viewport>
+      </ImageView>
+      <VBox alignment="CENTER" prefHeight="399.0" prefWidth="604.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Pane prefHeight="29.0" prefWidth="604.0">
+               <VBox.margin>
+                  <Insets bottom="30.0" />
+               </VBox.margin>
+            </Pane>
+            <Label text="Welcome" textFill="WHITE">
+               <font>
+                  <Font name="KoHo Bold" size="50.0" />
+               </font>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+               <effect>
+                  <DropShadow blurType="GAUSSIAN" spread="0.6" />
+               </effect>
+            </Label>
+            <Pane prefHeight="29.0" prefWidth="604.0" />
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="35.0" prefWidth="604.0">
+                     <children>
+                        <Label contentDisplay="CENTER" text="Username:" textFill="WHITE">
+                           <HBox.margin>
+                              <Insets right="15.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font name="KoHo Bold" size="20.0" />
+                           </font>
+                           <effect>
+                              <DropShadow spread="0.23" />
+                           </effect>
+                        </Label>
+                        <TextField fx:id="username" prefHeight="26.0" prefWidth="160.0" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="43.0" prefWidth="604.0">
+                     <children>
+                        <Label contentDisplay="CENTER" prefHeight="28.0" prefWidth="95.0" text="Password:" textFill="WHITE">
+                           <HBox.margin>
+                              <Insets right="15.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font name="KoHo Bold" size="20.0" />
+                           </font>
+                           <effect>
+                              <DropShadow spread="0.23" />
+                           </effect>
+                        </Label>
+                        <TextField fx:id="password" prefHeight="26.0" prefWidth="160.0" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Button fx:id="loginButton" mnemonicParsing="false" onAction="#auth" prefHeight="48.0" prefWidth="102.0" text="Login">
+                           <HBox.margin>
+                              <Insets right="50.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font name="KoHo Regular" size="22.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="quitButton" mnemonicParsing="false" onAction="#quit" prefHeight="48.0" prefWidth="102.0" text="Quit">
+                           <font>
+                              <Font name="KoHo Regular" size="22.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

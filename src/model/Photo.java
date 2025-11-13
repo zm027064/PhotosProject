@@ -1,6 +1,5 @@
 package model;
 
-import java.io.File;
 import java.io.IOException;
 import java.io.Serializable;
 import java.nio.file.Files;
@@ -13,6 +12,12 @@ import java.util.Set;
 
 /**
  * Serializable photo model.
+ *
+ * <p>Wraps a file path, caption, capture date (read from the file's
+ * last-modified time) and a set of tags. Instances are serialized by
+ * the application to persist user albums and photos.</p>
+ *
+ * @author Prayrit
  */
 public class Photo implements Serializable {
     private static final long serialVersionUID = 2L;
@@ -22,6 +27,11 @@ public class Photo implements Serializable {
     private LocalDateTime dateTime;
     private Set<Tag> tags = new LinkedHashSet<>();
 
+    /**
+     * Construct a Photo for the given file path.
+     *
+     * @param filePath path to the image file (absolute or project-relative)
+     */
     public Photo(String filePath) {
         this.filePath = filePath;
         this.caption = "";
@@ -39,16 +49,55 @@ public class Photo implements Serializable {
         }
     }
 
+    /**
+     * @return stored file path
+     */
     public String getFilePath() { return filePath; }
+
+    /**
+     * @return caption text
+     */
     public String getCaption() { return caption; }
+
+    /**
+     * Set the photo caption.
+     *
+     * @param c caption
+     */
     public void setCaption(String c) { caption = c; }
+
+    /**
+     * @return date/time associated with the photo (derived from file)
+     */
     public LocalDateTime getDateTime() { return dateTime; }
 
+    /**
+     * @return an unmodifiable view of tags attached to the photo
+     */
     public Set<Tag> getTags() { return tags; }
 
+    /**
+     * Add a tag to this photo. Duplicate tags (same type/value) are ignored.
+     *
+     * @param t tag to add
+     * @return true if the tag was added
+     */
     public boolean addTag(Tag t) { return tags.add(t); }
+
+    /**
+     * Remove a tag from this photo.
+     *
+     * @param t tag to remove
+     * @return true if removed
+     */
     public boolean removeTag(Tag t) { return tags.remove(t); }
 
+    /**
+     * Equality is based on the photo's file path.
+     *
+     * @param o other object
+     * @return true if the other object is a Photo with the same file path
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -57,6 +106,11 @@ public class Photo implements Serializable {
         return filePath.equals(p.filePath);
     }
 
+    /**
+     * Hash code consistent with {@link #equals(Object)}.
+     *
+     * @return hash code
+     */
     @Override
     public int hashCode() { return filePath.hashCode(); }
 }

@@ -20,21 +20,45 @@ import java.io.File;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * Controller for the Album view. Manages displaying photos in an album and
+ * performing operations such as add, remove, copy, move, tag, and navigation.
+ *
+ * <p>Handles photo selection, preview, tagging and operations that move or
+ * copy photos between albums for the active user.</p>
+ *
+ * @author Zach
+ */
 public class AlbumController {
+    /** FX-injected Back button. */
     @FXML public Button backButton;
+    /** FX-injected label showing album name. */
     @FXML public Label albumNameLabel;
+    /** FX-injected list view of photos in the album. */
     @FXML public ListView<Photo> photoListView;
+    /** FX-injected ImageView displaying the selected photo. */
     @FXML public ImageView photoView;
+    /** FX-injected label showing caption. */
     @FXML public Label captionLabel;
+    /** FX-injected label showing photo date. */
     @FXML public Label dateLabel;
+    /** FX-injected list view of tags for selected photo. */
     @FXML public ListView<String> tagsListView;
+    /** FX-injected Prev/Next navigation buttons. */
     @FXML public Button prevButton, nextButton;
+    /** FX-injected album action buttons (add/remove/copy/move/recaption/tag). */
     @FXML public Button addButton, removeButton, copyButton, moveButton, recapButton, addTagButton, removeTagButton;
 
     private User user;
     private Album album;
     private int currentIndex = -1;
 
+    /**
+     * Initialize controller context with the active user and album.
+     *
+     * @param u active user
+     * @param a album to display
+     */
     public void setContext(User u, Album a) {
         this.user = u; this.album = a;
         albumNameLabel.setText(a.getName());
@@ -109,6 +133,10 @@ public class AlbumController {
         refreshPhotos();
     }
 
+
+    /**
+     * Copy the currently selected photo to another album.
+     */
     @FXML
     public void handleCopy() {
         int sel = photoListView.getSelectionModel().getSelectedIndex();
@@ -117,6 +145,10 @@ public class AlbumController {
         showAlbumSelector(photo, false);
     }
 
+
+    /**
+     * Move the currently selected photo to another album.
+     */
     @FXML
     public void handleMove() {
         int sel = photoListView.getSelectionModel().getSelectedIndex();
@@ -160,6 +192,10 @@ public class AlbumController {
         refreshPhotos();
     }
 
+
+    /**
+     * Set or update the caption for the selected photo.
+     */
     @FXML
     public void handleRecaption() {
         int sel = photoListView.getSelectionModel().getSelectedIndex();
@@ -175,6 +211,10 @@ public class AlbumController {
         });
     }
 
+
+    /**
+     * Prompt for and add a tag to the selected photo.
+     */
     @FXML
     public void handleAddTag() {
         int sel = photoListView.getSelectionModel().getSelectedIndex();
@@ -207,6 +247,10 @@ public class AlbumController {
         });
     }
 
+
+    /**
+     * Remove the selected tag from the selected photo.
+     */
     @FXML
     public void handleRemoveTag() {
         int sel = photoListView.getSelectionModel().getSelectedIndex();
@@ -222,18 +266,29 @@ public class AlbumController {
         showPhoto(sel);
     }
 
+
+    /**
+     * Show previous photo in the album.
+     */
     @FXML
     public void handlePrev() { if (currentIndex > 0) { photoListView.getSelectionModel().select(--currentIndex); showPhoto(currentIndex); } }
+
+    /**
+     * Show next photo in the album.
+     */
     @FXML
     public void handleNext() { if (currentIndex+1 < album.getPhotos().size()) { photoListView.getSelectionModel().select(++currentIndex); showPhoto(currentIndex); } }
 
+    /**
+     * Navigate back to the user's main album view.
+     */
     @FXML
     public void handleBack() {
         try {
             Stage st = (Stage) backButton.getScene().getWindow();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/controllers/main.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/controllers/NonAdminController.fxml"));
             Parent p = loader.load();
-            MainController mc = loader.getController();
+            NonAdmin_Controller mc = loader.getController();
             mc.setUser(user);
             st.setScene(new Scene(p));
             st.setTitle("Photos - " + user.getUsername());

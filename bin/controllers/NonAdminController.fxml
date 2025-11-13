@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.NonAdmin_Controller">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="400.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="600.0">
+         <fill>
+            <LinearGradient endX="0.5583596816198307" endY="0.899053633777125" startX="0.1703469911208289" startY="0.11356474097218797">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.12914229929447174" green="0.1309697926044464" blue="0.1315789520740509" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </fill></Rectangle>
+      <VBox alignment="TOP_CENTER" prefHeight="400.0" prefWidth="600.0">
+         <children>
+            <HBox alignment="CENTER" prefHeight="44.0" prefWidth="600.0" spacing="200.0">
+               <children>
+                  <Label contentDisplay="CENTER" prefHeight="66.0" prefWidth="328.0" text="Albums" underline="true">
+                     <font>
+                        <Font name="Charter Black" size="55.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                     <textFill>
+                        <LinearGradient endX="1.0" endY="1.0">
+                           <stops>
+                              <Stop>
+                                 <color>
+                                    <Color red="0.9200000166893005" green="0.6641894578933716" blue="0.03680000081658363" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                 <color>
+                                    <Color red="0.6604549884796143" green="0.03680000081658363" blue="0.9200000166893005" />
+                                 </color>
+                              </Stop>
+                           </stops>
+                        </LinearGradient>
+                     </textFill>
+                  </Label>
+                  <Button fx:id="logoutButton" mnemonicParsing="false" onAction="#handleLogout" prefHeight="68.0" prefWidth="172.0" text="Logout">
+                     <font>
+                        <Font name="KoHo Regular" size="22.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets right="5.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
+            <Pane prefHeight="6.0" prefWidth="600.0" />
+            <ListView fx:id="albumListView" prefHeight="242.0" prefWidth="600.0">
+               <VBox.margin>
+                  <Insets left="5.0" right="5.0" />
+               </VBox.margin>
+            </ListView>
+            <Pane layoutX="10.0" layoutY="81.0" prefHeight="8.0" prefWidth="600.0" />
+            <HBox prefHeight="62.0" prefWidth="600.0" spacing="10.0">
+               <children>
+                  <Button fx:id="createButton" mnemonicParsing="false" onAction="#handleCreate" prefHeight="61.0" prefWidth="110.0" text="Create Album">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="KoHo Regular" size="13.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="deleteButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleDelete" prefHeight="61.0" prefWidth="110.0" text="Delete Album">
+                     <font>
+                        <Font name="KoHo Regular" size="13.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="renameButton" layoutX="120.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleRename" prefHeight="77.0" prefWidth="110.0" text="Rename Album">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="openButton" layoutX="230.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleOpen" prefHeight="61.0" prefWidth="110.0" text="Open Album">
+                     <font>
+                        <Font name="KoHo Regular" size="13.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="searchButton" layoutX="340.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleSearch" prefHeight="61.0" prefWidth="110.0" text="Search Photos">
+                     <font>
+                        <Font name="KoHo Regular" size="13.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+               <VBox.margin>
+                  <Insets top="3.0" />
+               </VBox.margin>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

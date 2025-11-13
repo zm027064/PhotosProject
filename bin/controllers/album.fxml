@@ -1,35 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.*?>
 
-<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AlbumController">
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+
+<BorderPane prefHeight="635.0" prefWidth="756.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AlbumController">
   <top>
-    <HBox spacing="10" alignment="CENTER_LEFT">
+    <HBox alignment="CENTER_LEFT" spacing="10">
       <padding>
-        <Insets top="10" right="10" bottom="10" left="10" />
+        <Insets bottom="10" left="10" right="10" top="10" />
       </padding>
-      <Button fx:id="backButton" text="Back" onAction="#handleBack" />
+      <Button fx:id="backButton" onAction="#handleBack" text="Back" />
       <Label fx:id="albumNameLabel" text="Album" />
     </HBox>
   </top>
   <center>
-    <SplitPane>
+    <SplitPane dividerPositions="0.5">
       <AnchorPane prefWidth="300">
-        <ListView fx:id="photoListView" AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" />
+        <ListView fx:id="photoListView" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0" />
       </AnchorPane>
       <VBox spacing="8">
         <padding>
-          <Insets top="10" right="10" bottom="10" left="10" />
+          <Insets bottom="10" left="10" right="10" top="10" />
         </padding>
-        <ImageView fx:id="photoView" fitWidth="500" fitHeight="400" preserveRatio="true" />
-        <Label fx:id="captionLabel" text="Caption" />
-        <Label fx:id="dateLabel" text="Date" />
-        <ListView fx:id="tagsListView" prefHeight="100" />
+        <ImageView fx:id="photoView" fitHeight="340.0" fitWidth="500" preserveRatio="true">
+               <effect>
+                  <DropShadow spread="0.02">
+                     <color>
+                        <Color red="0.08771929889917374" green="0.0841996967792511" blue="0.0841996967792511" />
+                     </color>
+                  </DropShadow>
+               </effect></ImageView>
+        <Label fx:id="captionLabel" text="Caption:" />
+        <Label fx:id="dateLabel" text="Date:" />
+            <Label fx:id="dateLabel1" text="Tags:" />
+        <ListView fx:id="tagsListView" prefHeight="97.0" prefWidth="500.0" />
         <HBox spacing="8">
-          <Button fx:id="prevButton" text="Prev" onAction="#handlePrev" />
-          <Button fx:id="nextButton" text="Next" onAction="#handleNext" />
+          <Button fx:id="prevButton" onAction="#handlePrev" text="Prev" />
+          <Button fx:id="nextButton" onAction="#handleNext" text="Next" />
         </HBox>
       </VBox>
     </SplitPane>
@@ -37,15 +54,15 @@
   <bottom>
     <HBox spacing="8">
       <padding>
-        <Insets top="10" right="10" bottom="10" left="10" />
+        <Insets bottom="10" left="10" right="10" top="10" />
       </padding>
-      <Button fx:id="addButton" text="Add Photo" onAction="#handleAdd" />
-      <Button fx:id="removeButton" text="Remove Photo" onAction="#handleRemove" />
-      <Button fx:id="copyButton" text="Copy" onAction="#handleCopy" />
-      <Button fx:id="moveButton" text="Move" onAction="#handleMove" />
-      <Button fx:id="recapButton" text="Recaption" onAction="#handleRecaption" />
-      <Button fx:id="addTagButton" text="Add Tag" onAction="#handleAddTag" />
-      <Button fx:id="removeTagButton" text="Remove Tag" onAction="#handleRemoveTag" />
+      <Button fx:id="addButton" onAction="#handleAdd" text="Add Photo" />
+      <Button fx:id="removeButton" onAction="#handleRemove" text="Remove Photo" />
+      <Button fx:id="copyButton" onAction="#handleCopy" text="Copy" />
+      <Button fx:id="moveButton" onAction="#handleMove" text="Move" />
+      <Button fx:id="recapButton" onAction="#handleRecaption" text="Recaption" />
+      <Button fx:id="addTagButton" onAction="#handleAddTag" text="Add Tag" />
+      <Button fx:id="removeTagButton" onAction="#handleRemoveTag" text="Remove Tag" />
     </HBox>
   </bottom>
 </BorderPane>
