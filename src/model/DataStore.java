@@ -123,7 +123,7 @@ public class DataStore implements Serializable {
                 }
                 // Validate stock photo count
                 if (photoCount < 5 || photoCount > 10) {
-                    System.err.println("Warning: Stock photos directory must contain between 5-10 photos (found " + photoCount + ")");
+                    //System.err.println("Warning: Stock photos directory must contain between 5-10 photos (found " + photoCount + ")");
                 }
                 if (modified) {
                     try { save(); System.out.println("Saved datastore after adding stock photos/album."); } catch (Exception e) { System.err.println("Failed saving datastore after ensureStock: " + e.getMessage()); }
